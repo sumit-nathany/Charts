@@ -274,7 +274,7 @@ open class YAxisRenderer: NSObject, AxisRenderer
             position = position.applying(trans)
             
             context.beginPath()
-            context.move(to: CGPoint(x: viewPortHandler.contentLeft, y: position.y))
+            context.move(to: CGPoint(x: viewPortHandler.contentLeft + l.lineXOffset, y: position.y))
             context.addLine(to: CGPoint(x: viewPortHandler.contentRight, y: position.y))
             
             context.setStrokeColor(l.lineColor.cgColor)
@@ -324,6 +324,11 @@ open class YAxisRenderer: NSObject, AxisRenderer
                 align = .left
                 point = CGPoint(x: viewPortHandler.contentLeft + xOffset,
                                 y: position.y + yOffset - labelLineHeight)
+                
+            case .leftCenter:
+                align = .left
+                point = CGPoint(x: viewPortHandler.contentLeft + xOffset,
+                                y: position.y - (labelLineHeight / 2))
             }
 
             context.drawText(label,

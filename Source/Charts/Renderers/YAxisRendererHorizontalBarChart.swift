@@ -282,6 +282,11 @@ open class YAxisRendererHorizontalBarChart: YAxisRenderer
                     align = .right
                     point = CGPoint(x: position.x - xOffset,
                                     y: viewPortHandler.contentBottom - labelLineHeight - yOffset)
+                    
+                case .leftCenter:
+                    align = .left
+                    point = CGPoint(x: viewPortHandler.contentLeft + xOffset,
+                                    y: position.y - (labelLineHeight / 2))
                 }
 
                 context.drawText(label,
