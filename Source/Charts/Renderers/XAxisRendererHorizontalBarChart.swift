@@ -278,6 +278,11 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
                     align = .left
                     point = CGPoint(x: viewPortHandler.contentLeft + xOffset,
                                     y: position.y + yOffset - labelLineHeight)
+                case .leftCenter:
+                    align = .left
+                    point = CGPoint(x: position.x - (labelLineHeight / 2),
+                                    y: viewPortHandler.contentTop + yOffset)
+                        
                 }
 
                 context.drawText(label,
